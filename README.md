@@ -360,15 +360,8 @@ main_synapse/
 - **Documentation**: Check the `/docs` folder for detailed guides
 - **Issues**: Report bugs or request features on GitHub Issues
 - **Discussions**: Join discussions in GitHub Discussions
-- **Email**: Contact support at [your-email]
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
----
+- **Email**: Contact support at [joelprince12345@gmail.com]
+----
 
 ## 🙏 Acknowledgments
 
@@ -379,12 +372,3 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ---
 
-## 🌟 Star History
-
-If you find Project Synapse useful, please consider giving it a star ⭐ on GitHub!
-
----
-
-**Built with ❤️ by the Synapse Team**
-
-*Transform your knowledge into intelligence.*
