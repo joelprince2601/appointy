@@ -28,7 +28,7 @@ cd ..
 The `.env` file in the `server` directory is already configured with the Gemini API key:
 
 ```env
-GEMINI_API_KEY=AIzaSyDHY8VXV5Fg4aQc8jKWX53eFyVyLcRQmj4
+GEMINI_API_KEY=XYZ
 PORT=3001
 ```
 
@@ -128,4 +128,5 @@ server/
 - Add support for multiple chat sessions
 - Implement conversation history
 - Add export functionality for chat conversations
+
 
