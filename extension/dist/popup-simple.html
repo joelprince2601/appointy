@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Synapse Capture</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 400px;
+      min-height: 500px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f9fafb;
+    }
+
+    .header {
+      background: linear-gradient(to right, #7c3aed, #4f46e5);
+      color: white;
+      padding: 20px;
+    }
+
+    .header h1 {
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
+
+    .header p {
+      font-size: 12px;
+      opacity: 0.9;
+    }
+
+    .container {
+      padding: 20px;
+    }
+
+    .section {
+      margin-bottom: 20px;
+    }
+
+    .section h2 {
+      font-size: 14px;
+      color: #374151;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 16px;
+      margin-bottom: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(to right, #7c3aed, #4f46e5);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: #374151;
+      border: 2px solid #e5e7eb;
+    }
+
+    .btn-secondary:hover {
+      border-color: #7c3aed;
+      background: #faf5ff;
+    }
+
+    .btn-success {
+      background: #10b981;
+      color: white;
+    }
+
+    .btn-success:hover {
+      background: #059669;
+    }
+
+    .btn-danger {
+      background: #ef4444;
+      color: white;
+    }
+
+    .btn-danger:hover {
+      background: #dc2626;
+    }
+
+    .icon {
+      font-size: 24px;
+    }
+
+    .btn-content {
+      flex: 1;
+      text-align: left;
+    }
+
+    .btn-title {
+      display: block;
+      font-weight: 600;
+    }
+
+    .btn-desc {
+      display: block;
+      font-size: 11px;
+      opacity: 0.8;
+      margin-top: 2px;
+    }
+
+    .stats {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 24px;
+      font-weight: 700;
+      color: #7c3aed;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: #6b7280;
+      margin-top: 4px;
+    }
+
+    .status {
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    .status-success {
+      background: #d1fae5;
+      color: #065f46;
+    }
+
+    .status-error {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+
+    .status-hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>💾 Synapse Capture</h1>
+    <p>Save selected text and URLs to CSV</p>
+  </div>
+
+  <div class="container">
+    <!-- Status Messages -->
+    <div id="status" class="status status-hidden"></div>
+
+    <!-- Stats -->
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-value" id="textCount">0</div>
+        <div class="stat-label">Selected Text</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value" id="urlCount">0</div>
+        <div class="stat-label">URLs Saved</div>
+      </div>
+    </div>
+
+    <!-- Main Actions -->
+    <div class="section">
+      <h2>Quick Save</h2>
+
+      <button class="btn btn-primary" id="saveTextBtn">
+        <span class="icon">✂️</span>
+        <span class="btn-content">
+          <span class="btn-title">Save Selected Text</span>
+          <span class="btn-desc">Saves highlighted text to CSV</span>
+        </span>
+      </button>
+
+      <button class="btn btn-secondary" id="saveUrlBtn">
+        <span class="icon">🔗</span>
+        <span class="btn-content">
+          <span class="btn-title">Save Current URL</span>
+          <span class="btn-desc">Saves page URL to CSV</span>
+        </span>
+      </button>
+    </div>
+
+    <!-- Export -->
+    <div class="section">
+      <h2>Export</h2>
+
+      <button class="btn btn-success" id="exportTextBtn">
+        <span class="icon">📥</span>
+        <span class="btn-content">
+          <span class="btn-title">Export Selected Text CSV</span>
+          <span class="btn-desc">Download all saved text</span>
+        </span>
+      </button>
+
+      <button class="btn btn-success" id="exportUrlBtn">
+        <span class="icon">📥</span>
+        <span class="btn-content">
+          <span class="btn-title">Export URLs CSV</span>
+          <span class="btn-desc">Download all saved URLs</span>
+        </span>
+      </button>
+    </div>
+
+    <!-- Clear -->
+    <div class="section">
+      <button class="btn btn-danger" id="clearAllBtn">
+        <span class="icon">🗑️</span>
+        <span class="btn-content">
+          <span class="btn-title">Clear All Data</span>
+          <span class="btn-desc">Delete all saved captures</span>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <script src="popup-simple.js"></script>
+</body>
+</html>
