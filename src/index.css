@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Neural Synapse Theme - Dark Mode Primary */
+    --background: 222 47% 4%;
+    --foreground: 210 40% 98%;
+
+    --card: 224 44% 7%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 224 44% 7%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Electric cyan - neural activity */
+    --primary: 190 95% 55%;
+    --primary-foreground: 222 47% 4%;
+
+    /* Deep blue-gray surfaces */
+    --secondary: 220 30% 15%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 220 25% 12%;
+    --muted-foreground: 215 20% 65%;
+
+    /* Soft teal accent */
+    --accent: 180 75% 45%;
+    --accent-foreground: 222 47% 4%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 25% 18%;
+    --input: 220 25% 18%;
+    --ring: 190 95% 55%;
+
+    --radius: 0.75rem;
+
+    /* Neural glow effects */
+    --glow-primary: 190 95% 55%;
+    --glow-secondary: 180 75% 45%;
+    --node-pulse: 190 95% 55%;
+
+    /* Custom gradients */
+    --gradient-neural: linear-gradient(135deg, hsl(190 95% 55% / 0.1), hsl(180 75% 45% / 0.1));
+    --gradient-glow: radial-gradient(circle at center, hsl(190 95% 55% / 0.15), transparent 70%);
+  }
+
+  .dark {
+    /* Already using dark as default */
+    --background: 222 47% 4%;
+    --foreground: 210 40% 98%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
