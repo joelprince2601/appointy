@@ -4,6 +4,8 @@
 
 Project Synapse is a comprehensive knowledge management platform that combines intelligent memory storage, semantic search, neural network visualization, and AI-powered conversation to create your personal second brain. Built with modern web technologies and powered by Google Gemini AI, Synapse helps you build a connected knowledge network that grows smarter over time.
 
+For scalability and efficient data management, PostgreSQL is used as the core database system — ensuring robust performance, reliability, and future-proof storage as the knowledge base expands.
+
 ---
 
 ## ✨ Key Features
